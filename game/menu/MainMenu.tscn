@@ -1,0 +1,149 @@
+[gd_scene load_steps=5 format=3 uid="uid://dmfdkwcu73843"]
+
+[ext_resource type="Theme" uid="uid://cgpmko4d01n84" path="res://game/ui-theme/theme.tres" id="1_7yq1p"]
+[ext_resource type="Script" path="res://game/menu/CreditsPopup.gd" id="2"]
+[ext_resource type="Script" path="res://game/menu/VersionLabel.gd" id="3_426jp"]
+[ext_resource type="Script" path="res://game/menu/MainMenu.gd" id="4"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_7yq1p")
+script = ExtResource("4")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 7
+
+[node name="VersionLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -64.0
+offset_right = 512.0
+offset_bottom = -8.0
+grow_vertical = 0
+text = "version"
+vertical_alignment = 2
+script = ExtResource("3_426jp")
+
+[node name="TitleLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.1
+anchor_right = 0.95
+anchor_bottom = 0.5
+bbcode_enabled = true
+text = "[center][/center]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.55
+anchor_right = 0.5
+anchor_bottom = 0.55
+offset_left = -120.0
+offset_right = 120.0
+grow_horizontal = 2
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Play"
+
+[node name="ChooseLevelButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Choose level"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+disabled = true
+text = "Options"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"
+
+[node name="CreditsPopup" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2")
+
+[node name="Panel" type="Panel" parent="CreditsPopup"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -430.0
+offset_top = -286.0
+offset_right = 430.0
+offset_bottom = 286.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsPopup/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = -8.0
+offset_bottom = -54.0
+bbcode_enabled = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsPopup/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = -54.0
+bbcode_enabled = true
+
+[node name="CloseButton" type="Button" parent="CreditsPopup/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -38.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Close"
