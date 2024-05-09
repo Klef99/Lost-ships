@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbtmw1f2fk7y8"
+path="res://.godot/imported/Sci-fi 2.ogg-647d3a7e419db01769d6576b864bc31d.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/Tracks/ogg/Sci-fi 2.ogg"
+dest_files=["res://.godot/imported/Sci-fi 2.ogg-647d3a7e419db01769d6576b864bc31d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
