@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddbisn0n7uuwk"]
+
+[ext_resource type="PackedScene" uid="uid://cdwvtbtwmrqbn" path="res://addons/maaacks_game_template/extras/scenes/PauseMenu/PauseMenu.tscn" id="1_0ls27"]
+[ext_resource type="Script" path="res://elements/UI/scenes/Menus/PauseMenu/PauseMenu.gd" id="2_bfsib"]
+[ext_resource type="PackedScene" uid="uid://d2h0akksowlot" path="res://elements/UI/scenes/Menus/OptionsMenu/MiniOptionsMenuWithReset.tscn" id="3_hjl65"]
+
+[node name="PauseMenu" instance=ExtResource("1_0ls27")]
+script = ExtResource("2_bfsib")
+options_packed_scene = ExtResource("3_hjl65")
+main_menu_scene = "res://elements/UI/scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
+
+[node name="Title" parent="MenuContainer/VBoxContainer/MarginContainer" index="0"]
+text = "Пауза"
+
+[node name="ResumeButton" parent="MenuContainer/VBoxContainer/MenuButtons" index="0"]
+text = "Продолжить"
+
+[node name="RestartButton" parent="MenuContainer/VBoxContainer/MenuButtons" index="1"]
+text = "Начать заново"
+
+[node name="OptionsButton" parent="MenuContainer/VBoxContainer/MenuButtons" index="2"]
+text = "Настройки"
+
+[node name="MainMenuButton" parent="MenuContainer/VBoxContainer/MenuButtons" index="3"]
+text = "Главное меню"
+
+[node name="ExitButton" parent="MenuContainer/VBoxContainer/MenuButtons" index="4"]
+text = "Выход"
+
+[node name="BackButton" parent="SubMenuContainer/VBoxContainer/HBoxContainer" index="0"]
+text = "Назад"
+
+[node name="ConfirmRestart" parent="." index="5"]
+title = "пожалуйста, подтвердите"
+
+[node name="ConfirmMainMenu" parent="." index="6"]
+title = "пожалуйста, подтвердите"
+
+[node name="ConfirmExit" parent="." index="7"]
+title = "пожалуйста, подтвердите"

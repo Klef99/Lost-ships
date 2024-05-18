@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://celh7tkc0iq6h"]
+
+[ext_resource type="PackedScene" uid="uid://doj7yj1du4d04" path="res://elements/UI/scenes/Menus/OptionsMenu/MasterOptionsMenu.tscn" id="1_n7w4u"]
+[ext_resource type="PackedScene" uid="uid://bloayui1ueya" path="res://elements/UI/scenes/Menus/OptionsMenu/Input/InputOptionsMenuWithMouseSensitivity.tscn" id="2_o8a71"]
+[ext_resource type="PackedScene" uid="uid://dkwsbjvxsk6hl" path="res://elements/UI/scenes/Menus/OptionsMenu/Audio/AudioOptionsMenu.tscn" id="3_v3rwr"]
+[ext_resource type="PackedScene" uid="uid://6jy730gs3mmb" path="res://elements/UI/scenes/Menus/OptionsMenu/Video/VideoOptionsMenuWithExtras.tscn" id="4_khmnw"]
+[ext_resource type="PackedScene" uid="uid://c576dhvrvv64y" path="res://elements/UI/scenes/Menus/OptionsMenu/Game/GameOptionsMenu.tscn" id="5_i01yi"]
+
+[node name="MasterOptionsMenu" instance=ExtResource("1_n7w4u")]
+
+[node name="Управление" parent="TabContainer" index="1" instance=ExtResource("2_o8a71")]
+layout_mode = 2
+
+[node name="Аудио" parent="TabContainer" index="2" instance=ExtResource("3_v3rwr")]
+visible = false
+layout_mode = 2
+
+[node name="Видео" parent="TabContainer" index="3" instance=ExtResource("4_khmnw")]
+visible = false
+layout_mode = 2
+
+[node name="Игра" parent="TabContainer" index="4" instance=ExtResource("5_i01yi")]
+visible = false
+layout_mode = 2

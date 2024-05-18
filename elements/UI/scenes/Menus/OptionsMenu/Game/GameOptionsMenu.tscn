@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://c576dhvrvv64y"]
+
+[ext_resource type="Script" path="res://elements/UI/scenes/Menus/OptionsMenu/Game/GameOptionsMenu.gd" id="1_whmpy"]
+[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/CaptureFocus.gd" id="2_3ghns"]
+[ext_resource type="PackedScene" uid="uid://dhqmd4l4grq8" path="res://elements/UI/scenes/Menus/OptionsMenu/Game/ResetGameControl/ResetGameControl.tscn" id="3_fu6rt"]
+
+[node name="Game" type="MarginContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_bottom = 24
+script = ExtResource("1_whmpy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+script = ExtResource("2_3ghns")
+search_depth = 2
+
+[node name="ResetGameControl" parent="VBoxContainer" instance=ExtResource("3_fu6rt")]
+layout_mode = 2
+
+[connection signal="reset_confirmed" from="VBoxContainer/ResetGameControl" to="." method="_on_ResetGameControl_reset_confirmed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://doedydamj0emb"]
+
+[ext_resource type="PackedScene" uid="uid://cp3p3kqcjh0me" path="res://addons/maaacks_game_template/extras/scenes/LoseScreen/LoseScreen.tscn" id="1_ys0ce"]
+[ext_resource type="Script" path="res://elements/UI/scenes/LoseScreen/LoseScreen.gd" id="2_u8gaj"]
+
+[node name="LoseScreen" instance=ExtResource("1_ys0ce")]
+script = ExtResource("2_u8gaj")
+main_menu_scene = "res://elements/UI/scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
+
+[node name="LoseMessage" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+text = "ВЫ погибли."
+
+[node name="ExitButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="0"]
+text = "Выход"
+
+[node name="MainMenuButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="1"]
+text = "Главное меню"
+
+[node name="RestartButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="2"]
+text = "Начать сначала"

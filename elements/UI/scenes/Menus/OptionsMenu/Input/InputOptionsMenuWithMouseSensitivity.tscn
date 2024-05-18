@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bloayui1ueya"]
+
+[ext_resource type="PackedScene" uid="uid://bmystnivqou47" path="res://elements/UI/scenes/Menus/OptionsMenu/Input/InputOptionsMenu.tscn" id="1_chbms"]
+[ext_resource type="PackedScene" uid="uid://cl416gdb1fgwr" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/OptionControl/SliderOptionControl.tscn" id="2_q0s4f"]
+
+[node name="Controls" instance=ExtResource("1_chbms")]
+
+[node name="VBoxContainer" parent="." index="0"]
+theme_override_constants/separation = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 3
+alignment = 1
+
+[node name="MouseSensitivityControl" parent="VBoxContainer/MarginContainer/VBoxContainer" index="0" instance=ExtResource("2_q0s4f")]
+layout_mode = 2
+option_name = "Чувствительность мыши"
+option_section = 1
+key = "ЧувствительностьМыши"
+section = "InputSettings"
+
+[node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="0"]
+text = "Чувствительность мыши :"
+
+[node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="1"]
+min_value = 0.5
+max_value = 2.0
+tick_count = 16
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" index="1"]
+layout_mode = 2
+
+[node name="ResetButton" parent="VBoxContainer/InputMappingContainer/HBoxContainer" index="0"]
+text = "Сбросить"
+
+[node name="KeyAssignmentDialog" parent="." index="1"]
+title = "Назначте клавишу"
+
+[node name="KeyDeletionDialog" parent="." index="2"]
+title = "Удалите клавишу"
+
+[node name="OneInputMinimumDialog" parent="." index="3"]
+title = "Нельзя удалить"
+
+[node name="AlreadyAssignedDialog" parent="." index="4"]
+title = "Клавиша уже назначена"
+
+[editable path="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://l5t7puftet3e"]
+[gd_scene load_steps=14 format=3 uid="uid://l5t7puftet3e"]
 
 [ext_resource type="Script" path="res://main scene/main.gd" id="1_l3hsg"]
 [ext_resource type="PackedScene" uid="uid://dyd86jgkffp4f" path="res://elements/player/player.tscn" id="2_42osa"]
@@ -7,7 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://be73pd8nhnh66" path="res://elements/Door/Door.tscn" id="3_vnhrg"]
 [ext_resource type="PackedScene" uid="uid://buc10lanteyn8" path="res://elements/Key/key.tscn" id="4_jyjwi"]
 [ext_resource type="PackedScene" uid="uid://bm83oooektfic" path="res://elements/ClueArea/clue_area.tscn" id="7_0w2qa"]
-[ext_resource type="AudioStream" uid="uid://du3ixo3yjb6xy" path="res://assets/music/Loops/mp3/Sci-Fi 1 Loop.mp3" id="8_v85xg"]
+[ext_resource type="PackedScene" uid="uid://bpah4proldugg" path="res://elements/Unit/unit.tscn" id="7_l6h3k"]
+[ext_resource type="PackedScene" uid="uid://dgi1p5t4pp4mb" path="res://elements/UI/scenes/GameScene/GameUI.tscn" id="9_0d02q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hx15h"]
 texture = ExtResource("2_io4bi")
@@ -739,21 +740,30 @@ layer_3/z_index = 2
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("3_gngte")
 
-[node name="Door" parent="TileMap" groups=["Doors"] instance=ExtResource("3_vnhrg")]
+[node name="Doors" type="Node2D" parent="TileMap"]
+
+[node name="Door" parent="TileMap/Doors" groups=["Doors"] instance=ExtResource("3_vnhrg")]
 position = Vector2(167, 80)
 
-[node name="Key" parent="TileMap" groups=["Keys"] instance=ExtResource("4_jyjwi")]
+[node name="Keys" type="Node2D" parent="TileMap"]
+
+[node name="Key" parent="TileMap/Keys" groups=["Keys"] instance=ExtResource("4_jyjwi")]
 position = Vector2(113, 106)
 
-[node name="ClueArea2" parent="TileMap" instance=ExtResource("7_0w2qa")]
+[node name="Clues" type="Node2D" parent="TileMap"]
+
+[node name="ClueArea2" parent="TileMap/Clues" instance=ExtResource("7_0w2qa")]
 position = Vector2(83, 86)
 text = "Подбери ключ"
+
+[node name="Enemies" type="Node2D" parent="TileMap"]
+
+[node name="Unit" parent="TileMap/Enemies" instance=ExtResource("7_l6h3k")]
+position = Vector2(135, 151)
 
 [node name="Player" parent="." instance=ExtResource("2_42osa")]
 position = Vector2(71, 88)
 platform_wall_layers = 3
+move_points = 5
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("8_v85xg")
-volume_db = -20.0
-autoplay = true
+[node name="GameUI" parent="." instance=ExtResource("9_0d02q")]

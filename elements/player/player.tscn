@@ -156,7 +156,6 @@ animation = &"idle"
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -8)
 scale = Vector2(0.3, 0.3)
-zoom = Vector2(3, 3)
 position_smoothing_enabled = true
 rotation_smoothing_enabled = true
 

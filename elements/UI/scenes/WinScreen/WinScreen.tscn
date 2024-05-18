@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://u24apdpdvpm6"]
+
+[ext_resource type="PackedScene" uid="uid://dt5ses55itjy4" path="res://addons/maaacks_game_template/extras/scenes/WinScreen/WinScreen.tscn" id="1_lmgoq"]
+[ext_resource type="Script" path="res://elements/UI/scenes/WinScreen/WinScreen.gd" id="2_l2o20"]
+
+[node name="WinScreen" instance=ExtResource("1_lmgoq")]
+script = ExtResource("2_l2o20")
+next_scene = "res://elements/UI/scenes/EndCredits/EndCredits.tscn"
+main_menu_scene = "res://elements/UI/scenes/Menus/MainMenu/MainMenuWithAnimations.tscn"
+
+[node name="WinMessage" parent="PanelContainer/MarginContainer/VBoxContainer" index="0"]
+text = "ВЫ выиграли!"
+
+[node name="ExitButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="0"]
+text = "Выход"
+
+[node name="MainMenuButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="1"]
+text = "Главное меню"
+
+[node name="ContinueButton" parent="PanelContainer/MarginContainer/VBoxContainer/ButtonsContainer" index="2"]
+text = "Продолжить"
+
+[node name="ConfirmMainMenu" parent="." index="4"]
+title = "пожалуйста, подтвердите"
+ok_button_text = "ОК"
+
+[node name="ConfirmExit" parent="." index="5"]
+title = "пожалуйста, подтвердите"

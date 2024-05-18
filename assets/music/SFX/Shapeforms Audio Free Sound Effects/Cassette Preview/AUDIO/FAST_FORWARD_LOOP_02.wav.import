@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://co3p4epdkpg6e"
+path="res://.godot/imported/FAST_FORWARD_LOOP_02.wav-d09e7c37eb09491d216f3d55f90e1d36.sample"
+
+[deps]
+
+source_file="res://assets/music/SFX/Shapeforms Audio Free Sound Effects/Cassette Preview/AUDIO/FAST_FORWARD_LOOP_02.wav"
+dest_files=["res://.godot/imported/FAST_FORWARD_LOOP_02.wav-d09e7c37eb09491d216f3d55f90e1d36.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

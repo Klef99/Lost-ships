@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://60i0ajnmwnf0"
+path="res://.godot/imported/Sci-Fi 7 Loop.mp3-befd9a80f122ec1bf39646cc92a6cc94.mp3str"
+
+[deps]
+
+source_file="res://assets/music/BGM/mp3/Sci-Fi 7 Loop.mp3"
+dest_files=["res://.godot/imported/Sci-Fi 7 Loop.mp3-befd9a80f122ec1bf39646cc92a6cc94.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

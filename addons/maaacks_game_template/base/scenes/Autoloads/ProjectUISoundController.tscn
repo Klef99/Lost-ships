@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://cc37235kj4384"]
+
+[ext_resource type="Script" path="res://addons/maaacks_game_template/base/scripts/UISoundController.gd" id="1_dmagn"]
+[ext_resource type="AudioStream" uid="uid://bdoq0h3ir4dnv" path="res://assets/music/SFX/Shapeforms Audio Free Sound Effects/Future UI Preview/Audio/FUI Holographic Button Press-1.wav" id="2_7rl3q"]
+
+[node name="ProjectUISoundController" type="Node"]
+script = ExtResource("1_dmagn")
+button_pressed = ExtResource("2_7rl3q")

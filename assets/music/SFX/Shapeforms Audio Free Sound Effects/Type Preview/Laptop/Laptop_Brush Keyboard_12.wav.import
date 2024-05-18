@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bkyg8s0p6gt8w"
+path="res://.godot/imported/Laptop_Brush Keyboard_12.wav-50b09ce6fbf6412e1a24f2b4a6db0cbb.sample"
+
+[deps]
+
+source_file="res://assets/music/SFX/Shapeforms Audio Free Sound Effects/Type Preview/Laptop/Laptop_Brush Keyboard_12.wav"
+dest_files=["res://.godot/imported/Laptop_Brush Keyboard_12.wav-50b09ce6fbf6412e1a24f2b4a6db0cbb.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

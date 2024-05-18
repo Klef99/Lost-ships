@@ -31,6 +31,8 @@ func _physics_process(delta):
 	update_avaliable_points()
 	_moving()
 
+func _ready():
+	position = tilemap.map_to_local(tilemap.local_to_map(position))
 
 func _handle_input_event(viewport: SubViewport, event: InputEvent, shape_idx: int):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
