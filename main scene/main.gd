@@ -27,7 +27,13 @@ func _input(event):
 					tilemap.local_to_map(player.global_position),
 					tilemap.local_to_map(click_position)
 			).slice(1)
-				clear_moving_area(player.get_avaliable_points())
+				#tilemap.get_node("Enemies").get_node("Unit").move_to(click_position+Vector2(5, 5))
+		var space_state = get_world_2d().direct_space_state
+		var query = PhysicsRayQueryParameters2D.create(player.global_position, click_position)
+		var result = space_state.intersect_ray(query)
+		print(result)
+		if not is_pressed:
+			clear_moving_area(player.get_avaliable_points())
 
 
 # TODO: При отрисовки меняется тайл пола
