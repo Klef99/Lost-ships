@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://d38luebo7qudr"]
+
+[ext_resource type="PackedScene" uid="uid://dgi1p5t4pp4mb" path="res://elements/UI/scenes/GameScene/GameUI.tscn" id="1_wj3d7"]
+[ext_resource type="Texture2D" uid="uid://c22k3xir2x0hk" path="res://new assets/healthbarUnder.png" id="2_0mamf"]
+[ext_resource type="Texture2D" uid="uid://cvlhvmirprmpr" path="res://new assets/healthbarProgress.png" id="3_05b4q"]
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="HPbar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 7.0
+offset_right = 93.0
+offset_bottom = 21.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("2_0mamf")
+texture_progress = ExtResource("3_05b4q")
+
+[node name="GameUI" parent="." instance=ExtResource("1_wj3d7")]
+layout_mode = 1

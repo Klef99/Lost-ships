@@ -3,14 +3,14 @@ extends StaticBody2D
 
 @onready var animation = $AnimatedSprite2D
 @export var door_level = 1
-@onready var tilemap = get_parent().get_parent()
+@onready var tilemap = get_parent().get_parent().get_node("TileMap")
 @onready var tile_pos = tilemap.local_to_map(position)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation.play("idle")
 	await owner.ready
-	tilemap.astar.set_point_solid(tile_pos)
+	#tilemap.astar.set_point_solid(tile_pos)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -19,13 +19,13 @@ func _ready():
 func _on_entered_area_body_entered(body):
 	if body.get_script().resource_path.get_file() == "player.gd" and body.access_door_level >= door_level:
 		animation.play("open")
-		tilemap.astar.set_point_solid(tile_pos, false)
+		#tilemap.astar.set_point_solid(tile_pos, false)
 		return
 
 func _on_entered_area_body_exited(body):
 	if body.get_script().resource_path.get_file() == "player.gd" and body.access_door_level >= door_level:
 		animation.play("close")
-		tilemap.astar.set_point_solid(tile_pos, true)
+		#tilemap.astar.set_point_solid(tile_pos, true)
 		return
 
 func _on_animated_sprite_2d_animation_finished():

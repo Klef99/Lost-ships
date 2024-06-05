@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dgi1p5t4pp4mb"]
+[gd_scene load_steps=10 format=3 uid="uid://dgi1p5t4pp4mb"]
 
 [ext_resource type="Script" path="res://elements/UI/scenes/GameScene/GameUI.gd" id="1_313r8"]
 [ext_resource type="PackedScene" uid="uid://u24apdpdvpm6" path="res://elements/UI/scenes/WinScreen/WinScreen.tscn" id="2_7ucy1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://addons/maaacks_game_template/extras/scripts/PauseMenuController.gd" id="4_ce0op"]
 [ext_resource type="PackedScene" uid="uid://ddbisn0n7uuwk" path="res://elements/UI/scenes/Menus/PauseMenu/PauseMenu.tscn" id="5_qjxec"]
 [ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/MusicPlayers/BackgroundMusicPlayer.tscn" id="7_y1kaa"]
-[ext_resource type="AudioStream" uid="uid://du3ixo3yjb6xy" path="res://assets/music/BGM/mp3/Sci-Fi 1 Loop.mp3" id="8_58p68"]
 [ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/LoadingScreen/LoadingScreen.tscn" id="8_enccp"]
 [ext_resource type="Script" path="res://elements/UI/scenes/GameScene/ConfigurableSubViewport.gd" id="9_fs4tr"]
 [ext_resource type="Script" path="res://elements/UI/scenes/GameScene/InputDisplayLabel.gd" id="10_3570y"]
@@ -27,7 +26,6 @@ script = ExtResource("4_ce0op")
 pause_menu_packed = ExtResource("5_qjxec")
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("7_y1kaa")]
-stream = ExtResource("8_58p68")
 
 [node name="LoadingScreen" parent="." instance=ExtResource("8_enccp")]
 visible = false
@@ -50,6 +48,7 @@ render_target_update_mode = 4
 script = ExtResource("9_fs4tr")
 
 [node name="InputDisplayLabel" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
