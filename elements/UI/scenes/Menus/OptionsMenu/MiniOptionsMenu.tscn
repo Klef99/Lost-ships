@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1sdv4nkmvxch"]
+
+[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_game_template/base/scenes/Menus/OptionsMenu/MiniOptionsMenu.tscn" id="1_i402a"]
+[ext_resource type="Script" path="res://elements/UI/scenes/Menus/OptionsMenu/MiniOptionsMenu.gd" id="2_8dcbi"]
+
+[node name="MiniOptionsMenu" instance=ExtResource("1_i402a")]
+script = ExtResource("2_8dcbi")
+
+[node name="MuteControl" parent="." index="1"]
+option_name = "Заглушить"
+key = "Заглушить"
+
+[node name="FullscreenControl" parent="." index="2"]
+option_name = "Полный экран"

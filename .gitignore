@@ -1,23 +1,2 @@
-# Build
-/build/
-
-# Debug script
-/[Dd]ebug.gd
-
-# Godot Engine generated files
-.import/
+# Godot 4+ specific ignores
 .godot/
-export.cfg
-
-# Mono
-.mono/
-/Properties/
-*.csproj
-*.sln
-mono_crash.*
-
-# GNU nano
-*.swp
-
-# VSCode
-.vscode/

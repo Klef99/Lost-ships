@@ -1,0 +1,121 @@
+[gd_scene load_steps=19 format=3 uid="uid://b3w65j1wcs3qu"]
+
+[ext_resource type="Script" path="res://elements/Enemies/Melee/melee.gd" id="1_qcb4t"]
+[ext_resource type="Texture2D" uid="uid://cl3734hx6sxbs" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_idle_anim_f0.png" id="2_e7rhm"]
+[ext_resource type="Texture2D" uid="uid://d18eqfovcvwh2" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_idle_anim_f1.png" id="3_q6uy1"]
+[ext_resource type="Texture2D" uid="uid://coa24ycwlwkqd" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_idle_anim_f2.png" id="4_olnd8"]
+[ext_resource type="Texture2D" uid="uid://b3n10paac7uwv" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_idle_anim_f3.png" id="5_a2kep"]
+[ext_resource type="Texture2D" uid="uid://bsjoegaad472v" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f0.png" id="6_y7sne"]
+[ext_resource type="Texture2D" uid="uid://d0ao43nfgv2x8" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f1.png" id="7_hd0es"]
+[ext_resource type="Texture2D" uid="uid://b57wq03i0u110" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f2.png" id="8_avf1u"]
+[ext_resource type="Texture2D" uid="uid://b3xk1hyiv3hoc" path="res://Assets/0x72_DungeonTilesetII_v1.7/frames/goblin_run_anim_f3.png" id="9_yulky"]
+[ext_resource type="Texture2D" uid="uid://c22k3xir2x0hk" path="res://Assets/healthbarUnder.png" id="10_7ilho"]
+[ext_resource type="Texture2D" uid="uid://cvlhvmirprmpr" path="res://Assets/healthbarProgress.png" id="11_cqe27"]
+[ext_resource type="PackedScene" uid="uid://b1vqp2d5xe6l3" path="res://elements/Hurtbox/Hurtbox.tscn" id="12_3gnew"]
+[ext_resource type="PackedScene" uid="uid://bwdlskherr8bu" path="res://elements/Hitbox/hitbox.tscn" id="13_3kk2b"]
+[ext_resource type="AudioStream" uid="uid://bi7t7cjthnhhc" path="res://Assets/Audio/SoundEffect/enemy_hit.ogg" id="14_t5gmc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_syjhk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_e7rhm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q6uy1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_olnd8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_a2kep")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_y7sne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_hd0es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_avf1u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yulky")
+}],
+"loop": true,
+"name": &"run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tylfu"]
+radius = 5.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2u8cg"]
+radius = 6.0
+height = 16.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pdov8"]
+radius = 6.0
+height = 20.0
+
+[node name="Goblin" type="CharacterBody2D"]
+collision_layer = 5
+collision_mask = 7
+script = ExtResource("1_qcb4t")
+SPEED = 40
+HP = 10
+knockback_recovery = 4.0
+dmg = 3
+experience = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_syjhk")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_tylfu")
+
+[node name="HealthBar" type="TextureProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -25.0
+offset_right = 15.0
+offset_bottom = -21.0
+nine_patch_stretch = true
+texture_under = ExtResource("10_7ilho")
+texture_progress = ExtResource("11_cqe27")
+
+[node name="Hurtbox" parent="." instance=ExtResource("12_3gnew")]
+collision_layer = 4
+collision_mask = 4
+HurtBoxType = 1
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_2u8cg")
+
+[node name="Hitbox" parent="." instance=ExtResource("13_3kk2b")]
+collision_layer = 2
+collision_mask = 2
+damage = 5
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(0, -4)
+shape = SubResource("CapsuleShape2D_pdov8")
+
+[node name="snd_hit" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("14_t5gmc")
+volume_db = -20.0
+bus = &"SFX"
+
+[connection signal="hurt" from="Hurtbox" to="." method="_on_hurtbox_hurt"]
+
+[editable path="Hurtbox"]
+[editable path="Hitbox"]

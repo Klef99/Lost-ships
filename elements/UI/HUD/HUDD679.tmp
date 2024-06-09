@@ -1,0 +1,104 @@
+[gd_scene load_steps=9 format=3 uid="uid://d38luebo7qudr"]
+
+[ext_resource type="Script" path="res://elements/UI/HUD/HUD.gd" id="1_dx4mh"]
+[ext_resource type="PackedScene" uid="uid://dgi1p5t4pp4mb" path="res://elements/UI/scenes/GameScene/GameUI.tscn" id="1_wj3d7"]
+[ext_resource type="Texture2D" uid="uid://c22k3xir2x0hk" path="res://Assets/healthbarUnder.png" id="2_0mamf"]
+[ext_resource type="Texture2D" uid="uid://cvlhvmirprmpr" path="res://Assets/healthbarProgress.png" id="3_05b4q"]
+[ext_resource type="Texture2D" uid="uid://dx7xx6vfahxlq" path="res://Assets/Textures/GUI/exp_background.png" id="3_igaic"]
+[ext_resource type="Texture2D" uid="uid://dlx33roiu0vlj" path="res://Assets/Textures/GUI/exp_progress.png" id="4_2fet1"]
+[ext_resource type="AudioStream" uid="uid://ul8hunj8tl2t" path="res://Assets/Audio/SoundEffect/levelup.ogg" id="5_cxooi"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vw7i5"]
+font_size = 11
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dx4mh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+visible = false
+
+[node name="HPbar" type="TextureProgressBar" parent="CanvasLayer"]
+offset_left = 5.0
+offset_top = 27.0
+offset_right = 93.0
+offset_bottom = 41.0
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("2_0mamf")
+texture_progress = ExtResource("3_05b4q")
+
+[node name="EXPbar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -313.0
+offset_right = 313.0
+offset_bottom = 21.0
+grow_horizontal = 2
+size_flags_vertical = 0
+nine_patch_stretch = true
+texture_under = ExtResource("3_igaic")
+texture_progress = ExtResource("4_2fet1")
+
+[node name="lbl_level" type="Label" parent="CanvasLayer/EXPbar"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 84.0
+offset_bottom = 22.0
+text = "LEVEL:1"
+label_settings = SubResource("LabelSettings_vw7i5")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LevelUp" type="Panel" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -125.0
+offset_right = 100.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="lbl_LevelUP" type="Label" parent="CanvasLayer/LevelUp"]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 50.0
+text = "Level UP!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeOptions" type="VBoxContainer" parent="CanvasLayer/LevelUp"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 50.0
+offset_right = 190.0
+offset_bottom = 100.0
+
+[node name="snd_levelup" type="AudioStreamPlayer2D" parent="CanvasLayer/LevelUp"]
+stream = ExtResource("5_cxooi")
+volume_db = -10.0
+bus = &"SFX"
+
+[node name="GameUI" parent="." instance=ExtResource("1_wj3d7")]
+visible = false
+layout_mode = 1
+
+[connection signal="tree_exiting" from="CanvasLayer" to="GameUI" method="_on_canvas_layer_tree_exiting"]

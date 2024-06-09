@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://buc10lanteyn8"]
+
+[ext_resource type="Script" path="res://elements/Items/Key/key.gd" id="1_ac42c"]
+[ext_resource type="Texture2D" uid="uid://ceunq4yog5wh1" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_1.png" id="3_a4ply"]
+[ext_resource type="Texture2D" uid="uid://dstqha1pp5yxe" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_2.png" id="4_3py1t"]
+[ext_resource type="Texture2D" uid="uid://bu04gebilefcf" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_3.png" id="5_f5dal"]
+[ext_resource type="Texture2D" uid="uid://c06wnd171bchr" path="res://Assets/2D Pixel Dungeon Asset Pack/items and trap_animation/keys/keys_2_4.png" id="6_ari17"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvs5d"]
+size = Vector2(16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_14rqr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_a4ply")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3py1t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_f5dal")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ari17")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[node name="Key" type="Area2D"]
+script = ExtResource("1_ac42c")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cvs5d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_14rqr")
+animation = &"idle"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

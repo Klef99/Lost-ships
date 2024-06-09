@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjwrm7tyhp33j"]
+
+[ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/LoadingScreen/LoadingScreen.tscn" id="1_k7oby"]
+[ext_resource type="Script" path="res://elements/UI/scenes/LoadingScreen/LoadingScreenWithShaderCaching.gd" id="2_vv42c"]
+
+[node name="LoadingScreen" instance=ExtResource("1_k7oby")]
+script = ExtResource("2_vv42c")
+_spatial_shader_material_dir = ""
+_cache_shaders_scene = "res://elements/UI/scenes/GameScene/GameUI.tscn"
+_matching_extensions = Array[String]([".tres", ".material", ".res"])
+_ignore_subfolders = Array[String]([".", ".."])
+_shader_delay_timer = 0.1
+
+[node name="Title" parent="Control/VBoxContainer" index="0"]
+text = "Загрузка..."
+
+[node name="SpatialShaderTypeCaches" type="Node3D" parent="." index="2"]
+unique_name_in_owner = true
+
+[node name="Camera3D" type="Camera3D" parent="SpatialShaderTypeCaches" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.408)
+current = true
