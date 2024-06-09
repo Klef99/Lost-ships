@@ -4,25 +4,25 @@ extends CharacterBody2D
 @export var SPEED = 0.8
 @export var HP = 100
 @onready var animation = $AnimatedSprite2D
-@onready var tilemap = get_parent().get_parent()
+@onready var tilemap = get_parent().find_child("TileMap")
 @onready var hpbar = $HealthBar
-var player: Player
-var player_chase = null
-signal take_damage(value)
+@onready var player = get_tree().get_first_node_in_group("player")
 
+
+var knockback = Vector2.ZERO
+@export var knockback_recovery = 3.5
 
 
 func _ready():
-	position = tilemap.map_to_local(tilemap.local_to_map(position)) # центрируем юнит в тайле
+	#position = tilemap.map_to_local(tilemap.local_to_map(position)) # центрируем юнит в тайле
 	#await get_parent().get_parent().ready
 	hpbar.max_value = HP
 	update_hpbar()
 
 func _moving():
-	if player_chase:
-		velocity = position.direction_to(player.position) * SPEED
-	else:
-		velocity = Vector2(0,0)
+	knockback = knockback.move_toward(Vector2.ZERO, knockback_recovery)
+	velocity = position.direction_to(player.position) * SPEED
+	velocity += knockback
 	if velocity == Vector2(0,0):
 		animation.play("idle")
 		return
@@ -38,19 +38,7 @@ func update_hpbar():
 	hpbar.value = HP
 
 
-func _on_detection_area_body_entered(body):
-	if body.get_script().resource_path.get_file() == "player.gd":
-		player = body
-		player_chase = true
-
-
-func _on_detection_area_body_exited(body):
-	if body.get_script().resource_path.get_file() == "player.gd":
-		player = null
-		player_chase = false
-
-
-func _on_take_damage(value):
+func get_damage(value):
 	HP -= value
 	update_hpbar()
 	if HP <= 0:

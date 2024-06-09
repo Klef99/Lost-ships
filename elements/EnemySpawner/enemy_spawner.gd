@@ -6,6 +6,7 @@ extends Node2D
 @onready var player = get_tree().get_first_node_in_group("player")
 
 @export var time = 0
+@export var zoom = 1
 
 signal changetime(time)
 
@@ -31,7 +32,7 @@ func _on_timer_timeout():
 	emit_signal("changetime",time)
 
 func get_random_position():
-	var vpr = get_viewport_rect().size * randf_range(1.1,1.4)
+	var vpr = get_viewport_rect().size * randf_range(1.1,1.4) / zoom
 	var top_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y - vpr.y/2)
 	var top_right = Vector2(player.global_position.x + vpr.x/2, player.global_position.y - vpr.y/2)
 	var bottom_left = Vector2(player.global_position.x - vpr.x/2, player.global_position.y + vpr.y/2)

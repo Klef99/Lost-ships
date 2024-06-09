@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://rakwdcfadpjy"]
+
+[ext_resource type="Script" path="res://elements/Items/Weapons/Tornado/TornadoController/tornado_controller.gd" id="1_8o5ui"]
+
+[node name="TornadoController" type="Node2D"]
+script = ExtResource("1_8o5ui")
+
+[node name="TornadoTimer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="TornadoAttackTimer" type="Timer" parent="TornadoTimer"]
+wait_time = 0.2
+
+[connection signal="timeout" from="TornadoTimer" to="." method="_on_tornado_timer_timeout"]
+[connection signal="timeout" from="TornadoTimer/TornadoAttackTimer" to="." method="_on_tornado_attack_timer_timeout"]

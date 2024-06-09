@@ -25,3 +25,8 @@ func _on_level_loader_levels_finished():
 
 func _on_level_loader_level_load_started():
 	$LoadingScreen.reset()
+
+
+func _on_canvas_layer_tree_exiting():
+	get_parent().get_node("CanvasLayer").set_deferred("visible", false)
+

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c67d6m6mww17x"]
+
+[ext_resource type="Script" path="res://elements/Items/Weapons/Ice spear/IceSpearController/ice_spear_controller.gd" id="1_mr87o"]
+
+[node name="IceSpearController" type="Node2D"]
+script = ExtResource("1_mr87o")
+
+[node name="IceSpearTimer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="IceSpearAttackTimer" type="Timer" parent="IceSpearTimer"]
+wait_time = 0.075
+
+[connection signal="timeout" from="IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]
+[connection signal="timeout" from="IceSpearTimer/IceSpearAttackTimer" to="." method="_on_ice_spear_attack_timer_timeout"]

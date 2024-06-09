@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bavs83au3uf5l" path="res://elements/UI/scenes/Menus/MainMenu/MainMenu.tscn" id="1_01nw0"]
 [ext_resource type="Script" path="res://elements/UI/scenes/Menus/MainMenu/MainMenuWithAnimations.gd" id="2_qpt6x"]
-[ext_resource type="AudioStream" uid="uid://dkeabc02qpjo7" path="res://assets/music/BGM/mp3/Sci-Fi 3 Loop.mp3" id="3_ugblt"]
+[ext_resource type="AudioStream" path="res://assets/music/BGM/mp3/Sci-Fi 3 Loop.mp3" id="3_ugblt"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"

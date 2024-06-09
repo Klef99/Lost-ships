@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://duk4gsgbed2c2"]
 
 [ext_resource type="Script" path="res://elements/Main menu/main_menu.gd" id="1_qaxc4"]
-[ext_resource type="Theme" uid="uid://d2l6fa77l10mq" path="res://assets/UI Theme/UI.tres" id="1_y1vay"]
+[ext_resource type="Theme" path="res://assets/UI Theme/UI.tres" id="1_y1vay"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
